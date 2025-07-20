@@ -20,6 +20,7 @@ jobs:
 
             - name: Deploy to EC2
               run: |
+                  echo "Connecting to ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}"
                   ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} << 'EOF'
                     cd ~/Bank-backend
                     git pull origin master
